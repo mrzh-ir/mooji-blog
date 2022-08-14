@@ -1,4 +1,3 @@
-// props is a way to pass the data from parent component to child component
 const BlogList = ( {blogs, title}) => {
     return ( 
         <div className="blog-list">

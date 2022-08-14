@@ -23,7 +23,6 @@ const useFetch = (url) => {
             setError(err.message);
             })
       }, [url]);
-      //[] is dependency, it fires when name is changed
       return { data, isPending, error }
 }
 export default useFetch;
