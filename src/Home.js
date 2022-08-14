@@ -3,6 +3,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
 
   useEffect(() => {
@@ -11,12 +12,14 @@ const Home = () => {
         return res.json();
     })
     .then(data => 
-        setBlogs(data))
+        setBlogs(data));
+        setIsPending(false);
   }, []);
   //[] is dependency, it fires when name is changed
 
   return (
     <div className="home">
+        { isPending && <div>is Loading ... </div>}
       { blogs && <BlogList blogs={blogs} title="All Blogs" /> }
     </div>
   );
